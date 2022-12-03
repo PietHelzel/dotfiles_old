@@ -22,6 +22,8 @@ bspc config top_padding 0
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
+bspc rule -a "steam_app_0" desktop=^5
+
 #Move all steam games to workspace 5
 mygames=$(ls ~/.steam/steam/steamapps | grep appmanifest | sed 's/[^0-9]*//g')
 
