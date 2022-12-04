@@ -14,4 +14,3 @@ polybar memory -c ~/.config/polybar/config.ini &
 polybar cpu -c ~/.config/polybar/config.ini &
 polybar capsnum -c ~/.config/polybar/config.ini &
 polybar packages -c ~/.config/polybar/config.ini &
-#polybar cava -c ~/.config/polybar/config.ini &

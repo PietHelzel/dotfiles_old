@@ -23,6 +23,7 @@ config_file="/tmp/polybar_cava_config"
 echo "
 [general]
 bars = 7
+framerate = 30
 
 [output]
 method = raw
