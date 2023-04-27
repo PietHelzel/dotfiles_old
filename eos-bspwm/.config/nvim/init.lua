@@ -32,3 +32,5 @@ require "user.plugin-settings.telescope"
 require "user.plugin-settings.lualine"
 
 require "user.plugin-settings.markdown-preview"
+
+require "user.plugin-settings.lsp_lines"

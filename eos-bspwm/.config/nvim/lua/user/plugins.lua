@@ -70,4 +70,6 @@ return packer.startup(function(use)
     use "williamboman/mason.nvim" -- LSP server manager
     use "williamboman/mason-lspconfig.nvim" -- Mason integration into lspconfig
     use "neovim/nvim-lspconfig" -- Quick lsp configurations
+
+    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- Diagnostics on virtual lines
 end)
