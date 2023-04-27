@@ -4,11 +4,11 @@ local opts = {noremap = true, silent = true} -- Options for keybindings
 
 local keymap = vim.api.nvim_set_keymap -- Shorter name for convenience
 
+
 -- Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts) -- Remove space key bindings
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 
 -- # Normal mode bindings
 
@@ -38,10 +38,6 @@ keymap("n", "<A-k>", ":MoveLine(-1)<CR>", opts)
 keymap("v", "<A-j>", ":MoveBlock(1)<CR>", opts)
 keymap("v", "<A-k>", ":MoveBlock(-1)<CR>", opts)
 
--- Workaround to :wqa not working when terminal was opened
-vim.cmd "command WQAworkaround wa | qa"
-vim.cmd "cabbrev wqa WQAworkaround"
-
 -- Paste over selected text without yanking it
 keymap("v", "p", '"_dP', opts)
 
@@ -61,7 +57,13 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope lsp_workspace_symbols<CR>", opts)
+keymap("n", "<leader>f<S-s>", ":Telescope lsp_document_symbols<CR>", opts)
+keymap("n", "<leader>fd", ":Telescope diagnostics<CR>", opts)
 
 -- bufdel
 keymap("n", "<leader>q", ":BufDel<CR>", opts)
 require("bufdel").setup {quit = false}
+
+-- Markdown Preview
+keymap("n", "<leader>m", ":MarkdownPreview<CR>", opts)

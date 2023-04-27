@@ -39,31 +39,35 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     }
 
-    use "akinsho/toggleterm.nvim" -- Terminal inside neovim
-
     use "akinsho/bufferline.nvim" -- Buffer line
 
     use "windwp/nvim-autopairs" -- Autopairing for brackets
 
     use "ojroques/nvim-bufdel" -- Better buffer deletion
 
-
-
-    -- LSP
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
-    use "neovim/nvim-lspconfig"
-
-
-    -- Code completions
-    use "hrsh7th/nvim-cmp"
-    use "hrsh7th/cmp-nvim-lsp"
-    use "hrsh7th/cmp-nvim-lua"
-    use "hrsh7th/cmp-nvim-lsp-signature-help"
-    use "hrsh7th/cmp-vsnip"
-    use "hrsh7th/cmp-path"
-    use "hrsh7th/cmp-buffer"
-    use "hrsh7th/vim-vsnip"
-
     use "rafamadriz/friendly-snippets"
+
+    use "nvim-lualine/lualine.nvim" -- Statusline
+
+    use "p00f/nvim-ts-rainbow" -- Rainbow brackets
+
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    }) -- Markdown preview
+
+    use {
+        "L3MON4D3/LuaSnip", -- Snippet engine
+        config = function()
+            require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.local/share/nvim/site/pack/packer/start/friendly-snippets" } })
+        end
+    }
+
+    use "hrsh7th/nvim-cmp" -- Completion engine
+    use "hrsh7th/cmp-nvim-lsp" -- Cmp integration for nvim-lsp
+    use "saadparwaiz1/cmp_luasnip" -- Luasnip integration
+
+    use "williamboman/mason.nvim" -- LSP server manager
+    use "williamboman/mason-lspconfig.nvim" -- Mason integration into lspconfig
+    use "neovim/nvim-lspconfig" -- Quick lsp configurations
 end)

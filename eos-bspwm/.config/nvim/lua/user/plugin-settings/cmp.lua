@@ -1,20 +1,20 @@
 vim.opt.completeopt = {"menuone", "noselect", "noinsert", "preview"}
 
 local cmp = require("cmp")
+local luasnip = require("luasnip")
+
 cmp.setup {
     sources = {
-        {name = "path"},
-        {name = "nvim_lsp"},
-        {name = "nvim_lsp_signature_help"},
-        {name = "nvim_lua"},
-        {name = "buffer"},
-        {name = "vsnip"},
+        --  {name = "path"},
+        {name = "nvim_lsp", max_item_count = 5},
+        --  {name = "nvim_lsp_signature_help", max_item_count = 2},
+        --  {name = "nvim_lua"},
+        --  {name = "buffer", max_item_count = 3},
+        {name = "luasnip", max_item_count = 2},
     },
 
     mapping = cmp.mapping.preset.insert({
-        ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-        ["<Tab>"] = cmp.mapping.select_next_item(),
-        ["<C-S-f>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
@@ -22,11 +22,31 @@ cmp.setup {
             behaviour = cmp.ConfirmBehavior.Insert,
             select = true,
         }),
+        -- Super-Tab behaviour
+        ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item()
+            elseif luasnip.jumpable(1) then
+                luasnip.jump(1)
+            else
+                fallback()
+            end
+        end, {"i", "s"}),
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+                luasnip.jump(-1)
+            else
+                fallback()
+            end
+        end, {"i", "s"}),
+
     }),
 
     snippet = {
         expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
+            require("luasnip").lsp_expand(args.body)
         end,
     }
 }
