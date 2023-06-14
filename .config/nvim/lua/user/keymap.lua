@@ -27,6 +27,7 @@ keymap("n", "<A-b>", ":horizontal resize +2<CR>", opts)
 -- Better buffer navigation
 keymap("n", "<A-l>", ":bnext<CR>", opts)
 keymap("n", "<A-h>", ":bprevious<CR>", opts)
+keymap("n", "<A-b>", ":enew<CR>", opts)
 
 -- # Insert mode bindings
 
@@ -62,9 +63,10 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fs", ":Telescope lsp_workspace_symbols<CR>", opts)
-keymap("n", "<leader>f<S-s>", ":Telescope lsp_document_symbols<CR>", opts)
+keymap("n", "<leader>f<S-s>", ":Telescope lsp_workspace_symbols<CR>", opts)
+keymap("n", "<leader>fs", ":Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<leader>fd", ":Telescope diagnostics<CR>", opts)
+keymap("n", "<leader>f<S-d>", ":Telescope diagnostics bufnr=0<CR>", opts)
 
 -- bufdel
 keymap("n", "<leader>q", ":BufDel<CR>", opts)

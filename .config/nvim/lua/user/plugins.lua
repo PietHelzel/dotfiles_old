@@ -47,7 +47,7 @@ return packer.startup(function(use)
 
     use "ojroques/nvim-bufdel" -- Better buffer deletion
 
-    use "rafamadriz/friendly-snippets"
+    use "rafamadriz/friendly-snippets" -- Code snippets
 
     use "nvim-lualine/lualine.nvim" -- Statusline
 

@@ -26,7 +26,6 @@ require "user.plugin-settings.cmp"
 
 require "user.plugin-settings.mason"
 
-
 require "user.plugin-settings.telescope"
 
 require "user.plugin-settings.lualine"
