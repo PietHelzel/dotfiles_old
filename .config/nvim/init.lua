@@ -5,6 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.timeout = false
 vim.opt.shell = "zsh"
 
+vim.diagnostic.config({virtual_text = false})
+
 require "user.plugins"
 
 require "user.options"
@@ -31,7 +33,5 @@ require "user.plugin-settings.telescope"
 require "user.plugin-settings.lualine"
 
 require "user.plugin-settings.markdown-preview"
-
-require "user.plugin-settings.lsp_lines"
 
 require "user.plugin-settings.clipboard-image"

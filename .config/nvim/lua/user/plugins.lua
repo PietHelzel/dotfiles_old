@@ -73,7 +73,5 @@ return packer.startup(function(use)
     use "williamboman/mason-lspconfig.nvim" -- Mason integration into lspconfig
     use "neovim/nvim-lspconfig" -- Quick lsp configurations
 
-    use "https://git.sr.ht/~whynothugo/lsp_lines.nvim" -- Diagnostics on virtual lines
-
-    use 'ekickx/clipboard-image.nvim' -- Paste images into markdown
+    use 'postfen/clipboard-image.nvim' -- Paste images into markdown
 end)
